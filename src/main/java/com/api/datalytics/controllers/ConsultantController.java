@@ -1,6 +1,6 @@
 package com.api.datalytics.controllers;
 
-import com.api.datalytics.domain.dtos.ConsultantResponseDTO;
+import com.api.datalytics.domain.dtos.response.ConsultantResponseDTO;
 import com.api.datalytics.services.ConsultantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

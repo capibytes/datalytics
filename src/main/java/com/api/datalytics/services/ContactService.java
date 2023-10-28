@@ -1,6 +1,6 @@
 package com.api.datalytics.services;
 
-import com.api.datalytics.domain.dtos.ContactResponseDTO;
+import com.api.datalytics.domain.dtos.response.ContactResponseDTO;
 import com.api.datalytics.domain.entities.Contact;
 import com.api.datalytics.domain.mappers.MapStructMapper;
 import com.api.datalytics.repositories.ContactRepository;
