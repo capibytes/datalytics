@@ -12,7 +12,7 @@ resource "aws_lb" "cpb_alb" {
 
 resource "aws_security_group" "alb_sg" {
   name        = "capibytes-alb-sg"
-  description = "Permite todo tráfego de entrada"
+  description = "Permite todo trafego de entrada"
   vpc_id      = aws_vpc.cpb_vpc.id
 
   ingress {
