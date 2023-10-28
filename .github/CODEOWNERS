@@ -1,0 +1,7 @@
+# CODEOWNERS file
+
+.github/ @digodk @cissavgonc
+.docker/ @digodk @cissavgonc
+terraform/ @digodk @cissavgonc
+Dockerfile @digodk @cissavgonc
+docker-compose.yml @digodk @cissavgonc
