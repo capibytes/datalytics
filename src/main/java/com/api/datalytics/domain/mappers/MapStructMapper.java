@@ -30,7 +30,7 @@ public interface MapStructMapper {
 
     ConsultantRequestDTO consultantRequestDTOToConsultant(Consultant consultant);
 
-    Optional<ConsultantResponseDTO> consultantResponseDTOToConsultant(Optional<Consultant> consultant);
+    ConsultantResponseDTO consultantResponseDTOToConsultant(Consultant consultant);
 
     List<CustomerResponseDTO> toCustomerResponseDTOList(List<Customer> customer);
 
