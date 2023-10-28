@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "api_cert" {
-  domain_name       = "api.datalytics.devs2blu.dev.br"
+  domain_name       = "api.${local.dominio}"
   validation_method = "DNS"
 
   lifecycle {

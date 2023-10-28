@@ -1,3 +1,15 @@
+resource "aws_route53_zone" "datalytics" {
+  name = local.dominio
+}
+
+resource "aws_route53_record" "datalytics-ns" {
+  zone_id = local.devs2blu_zone_id
+  name    = local.dominio
+  type    = "NS"
+  ttl     = "30"
+  records = aws_route53_zone.datalytics.name_servers
+}
+
 resource "aws_route53_record" "api_validation" {
   for_each = {
     for dvo in aws_acm_certificate.api_cert.domain_validation_options : dvo.domain_name => {
@@ -9,15 +21,15 @@ resource "aws_route53_record" "api_validation" {
 
   name    = each.value.name
   type    = each.value.type
-  zone_id = "YOUR_ZONE_ID"  # Replace with your Zone ID
+  zone_id = aws_route53_zone.datalytics.zone_id
   records = [each.value.record]
   ttl     = 60
 }
 
 resource "aws_route53_record" "api" {
-  name    = "api.datalytics.devs2blu.dev.br"
+  name    = "api.${local.dominio}"
   type    = "A"
-  zone_id = "YOUR_ZONE_ID"  # Replace with your Zone ID
+  zone_id = aws_route53_zone.datalytics.zone_id
   alias {
     name                   = aws_lb.cpb_alb.dns_name
     zone_id                = aws_lb.cpb_alb.zone_id

@@ -25,4 +25,6 @@ locals {
   env = "dev"
   ami_ubuntu = "ami-0fc5d935ebf8bc3bc"
   backend_port = 80
+  devs2blu_zone_id = "Z046211627S38YQSML8YQ"
+  dominio = "datalytics.devs2blu.dev.br"
   }
