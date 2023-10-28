@@ -28,6 +28,9 @@ public interface MapStructMapper {
 
     Consultant consultantToConsultantRequestDTO(ConsultantRequestDTO contactRequestDTO);
 
+    Consultant consultantToConsultantResponseDTO(ConsultantResponseDTO consultantResponsetDTO);
+    ConsultantRequestDTO consultantRequestDTOToConsultantResponseDTO(ConsultantResponseDTO consultantResponseDTO);
+
     ConsultantRequestDTO consultantRequestDTOToConsultant(Consultant consultant);
 
     ConsultantResponseDTO consultantResponseDTOToConsultant(Consultant consultant);
