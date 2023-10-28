@@ -1,6 +1,6 @@
 package com.api.datalytics.controllers;
 
-import com.api.datalytics.domain.dtos.ContactResponseDTO;
+import com.api.datalytics.domain.dtos.response.ContactResponseDTO;
 import com.api.datalytics.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
