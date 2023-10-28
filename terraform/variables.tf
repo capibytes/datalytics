@@ -24,4 +24,5 @@ locals {
   team_name = "CapiBytes"
   env = "dev"
   ami_ubuntu = "ami-0fc5d935ebf8bc3bc"
+  backend_port = 80
   }
