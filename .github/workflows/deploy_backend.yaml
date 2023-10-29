@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Mudar ambiente para prod
-        uses: echo "spring.profiles.active=prod" > src/main/resources/application.properties
+        run: echo "spring.profiles.active=prod" > src/main/resources/application.properties
 
       - name: Configurar credenciais AWS
         uses: aws-actions/configure-aws-credentials@v4
