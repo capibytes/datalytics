@@ -9,6 +9,11 @@ resource "aws_iam_policy" "backend_ecr_pull" {
         Effect    = "Allow",
         Action    = ["ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage", "ecr:BatchCheckLayerAvailability"],
         Resource  = [aws_ecr_repository.cpb_backend_repo.arn]
+      },
+      {
+        Effect    = "Allow",
+        Action    = ["ecr:GetAuthorizationToken"],
+        Resource  = "*"
       }
     ]
   })
