@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+
+  datalytics-app:
+    build: .
+    ports:
+      - "80:8080"
+    environment:
+      DB_PASSWORD: "<%:n}?A5kU`o-):e~)"
+      PGUSER: "dev_root"
+      DB_URL: "jdbc:postgresql://capibytes-db.cmw2whm4hmzl.us-east-1.rds.amazonaws.com:5432/postgres"
