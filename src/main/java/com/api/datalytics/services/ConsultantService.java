@@ -31,12 +31,12 @@ public class ConsultantService {
         return mapStructMapper.consultantRequestDTOToConsultant(consultantRepository.save(consultant));
     }
 
-    public void delete(ConsultantRequestDTO consultantRequest){
-        consultantRepository.delete(mapStructMapper.consultantToConsultantRequestDTO(consultantRequest));
+    public void delete(Consultant consultant){
+        consultantRepository.delete(consultant);
     }
 
     public Optional<ConsultantResponseDTO> findById(Long id){
-        Consultant consultant = consultantRepository.findById(id).orElseThrow(() ->  new ObjectNotFoundException("Consultor não localizado" + id));
+        Consultant consultant = consultantRepository.findById(id).orElseThrow(() ->  new ObjectNotFoundException("Consultor não localizado com o id: " + id));
         return Optional.ofNullable(mapStructMapper.consultantResponseDTOToConsultant(consultant));
     }
 }

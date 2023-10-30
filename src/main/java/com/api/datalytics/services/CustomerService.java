@@ -1,5 +1,6 @@
 package com.api.datalytics.services;
 
+import com.api.datalytics.domain.dtos.request.CustomerRequestDTO;
 import com.api.datalytics.domain.dtos.response.CustomerResponseDTO;
 import com.api.datalytics.domain.entities.Customer;
 import com.api.datalytics.domain.mappers.MapStructMapper;
@@ -22,5 +23,10 @@ public class CustomerService {
         List<Customer> customers = customerRepository.findAll();
         return mapStructMapper.toCustomerResponseDTOList(customers);
     }
-    
+
+    public CustomerRequestDTO save(CustomerRequestDTO customerRequest){
+        Customer customer = mapStructMapper.customerToCustomerRequestDTO(customerRequest);
+        return mapStructMapper.customerRequestDTOToCustomer(customerRepository.save(customer));
+    }
+
 }

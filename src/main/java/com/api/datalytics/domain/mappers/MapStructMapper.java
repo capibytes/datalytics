@@ -32,12 +32,16 @@ public interface MapStructMapper {
 
     ConsultantResponseDTO consultantResponseDTOToConsultant(Consultant consultant);
 
+    Consultant consultantToConsultantResponseDTO(ConsultantResponseDTO consultantResponsetDTO);
+    ConsultantRequestDTO consultantRequestDTOToConsultantResponseDTO(ConsultantResponseDTO consultantResponseDTO);
+
     List<CustomerResponseDTO> toCustomerResponseDTOList(List<Customer> customer);
 
     Customer customerToCustomerResponseDTO(CustomerResponseDTO customerResponseDTO);
 
     CustomerRequestDTO customerRequestDTOToCustomer(Customer customer);
 
+    Customer customerToCustomerRequestDTO (CustomerRequestDTO customerRequestDTO);
 
     List<ContactResponseDTO> toContactResponseDTOList(List<Contact> contact);
 
