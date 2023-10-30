@@ -1,8 +1,11 @@
 package com.api.datalytics.controllers;
 
+import com.api.datalytics.domain.dtos.request.ConsultantRequestDTO;
+import com.api.datalytics.domain.dtos.request.CustomerRequestDTO;
 import com.api.datalytics.domain.dtos.response.ConsultantResponseDTO;
 import com.api.datalytics.domain.mappers.MapStructMapper;
 import com.api.datalytics.services.ConsultantService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,4 +49,19 @@ public class ConsultantController {
         }
 
     }
+
+    @PostMapping("/save")
+    public ResponseEntity<Object> save(@Valid @RequestBody ConsultantRequestDTO consultantRequestDTO){
+        return ResponseEntity.ok(consultantService.save(consultantRequestDTO));
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Object> update(@PathVariable(value = "id") Long id, @RequestBody @Valid ConsultantRequestDTO consultantRequestDTO){
+        Optional<ConsultantResponseDTO> consultantOptional = consultantService.findById(id);
+        if(consultantOptional.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(consultantService.save(consultantRequestDTO));
+    }
+
 }
