@@ -76,6 +76,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.DEPLOY_DIR }} 
+            git pull
             aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ env.REGISTRY }}
             docker-compose up -d ${{ env.DOCKER_SERVICES }}
             docker image prune -a -f
