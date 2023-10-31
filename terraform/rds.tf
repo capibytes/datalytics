@@ -1,5 +1,5 @@
 resource "aws_db_instance" "cpb_rds" {
-  allocated_storage    = 100  # Change this based on your needs
+  allocated_storage    = 20 
   storage_type         = "gp2"
   engine               = "postgres"
   engine_version       = "15.4"
@@ -10,8 +10,7 @@ resource "aws_db_instance" "cpb_rds" {
   skip_final_snapshot  = true
   identifier = "capibytes-db"
 
-  # Open to external connections (not recommended for production)
-  publicly_accessible = true
+  publicly_accessible = false
 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.name
@@ -23,16 +22,9 @@ resource "aws_db_instance" "cpb_rds" {
 
 resource "aws_security_group" "rds_sg" {
   name        = "capibytes_rds_sg"
-  description = "Allow all inbound traffic to PostgreSQL"
+  description = "Permite tráfego a partir da rede do backend"
   vpc_id      = aws_vpc.cpb_vpc.id
-
-  ingress {
-    from_port   = 5432
-    to_port     = 5432
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Allows connection from anywhere
-  }
-
+  
   ingress {
     from_port   = 5432
     to_port     = 5432
