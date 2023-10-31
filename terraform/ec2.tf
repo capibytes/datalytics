@@ -44,7 +44,7 @@ resource "aws_instance" "cpb_ec2" {
   ami           = local.ami_ubuntu  # Ubuntu 22.04
   instance_type = "t3.medium"
 
-  key_name               = "capibytes-cecilia"  # Specify your key pair name if you have one
+  key_name               = "capibytes-datalytics"  # Specify your key pair name if you have one
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   subnet_id              = aws_subnet.cpb_subnet1.id
   iam_instance_profile = aws_iam_instance_profile.backend_ec2_profile.name

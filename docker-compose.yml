@@ -1,12 +1,13 @@
-version: '3.1'
+version: '3.8'
 
 services:
 
   datalytics-app:
-    build: .
+    pull_policy: always
+    image: 794196173640.dkr.ecr.us-east-1.amazonaws.com/capibytes-backend-repo:latest
     ports:
       - "80:8080"
     environment:
-      DB_PASSWORD: db_password
-      PGUSER: db_username
+      DB_PASSWORD: "${db_password}"
+      PGUSER: "${db_username}"
       DB_URL: "jdbc:postgresql://capibytes-db.cmw2whm4hmzl.us-east-1.rds.amazonaws.com:5432/postgres"
