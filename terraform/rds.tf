@@ -1,5 +1,5 @@
 resource "aws_db_instance" "cpb_rds" {
-  allocated_storage    = 20 
+  allocated_storage    = 100 
   storage_type         = "gp2"
   engine               = "postgres"
   engine_version       = "15.4"
@@ -22,7 +22,7 @@ resource "aws_db_instance" "cpb_rds" {
 
 resource "aws_security_group" "rds_sg" {
   name        = "capibytes_rds_sg"
-  description = "Permite tráfego a partir da rede do backend"
+  description = "Permite trafego a partir da rede do backend"
   vpc_id      = aws_vpc.cpb_vpc.id
   
   ingress {
